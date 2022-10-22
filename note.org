@@ -1,0 +1,22 @@
+* Le interface
+
+** Token Sender/Reciever
+entrambe le interface le farei package
+
+* Quali classi rendi pubbliche
+Lo scopo di questo package, la sua macroresponsabilità, per metterla
+alla Javanese, sarebbe quella di prendere il testo e farci un albero
+di token o quant'altro.
+
+quindi ci servirà un qualche ~Tokenizer~ e un ~TokenTree~ da rendere
+pubblici.
+
+ - Al momento direi ~IncrementalTokenizer~ e ~TokenTree~
+ - Poi ~IncrementalTokenizer~ e mi sa servirà (o farò comunque) un
+   ~ConsTokenTree~ 
+
+* Todo
+Data la magnificenza del lisp direi di aspettare fino all'eval per
+fare le espanzioni macro più serie, quindi per ora cose come il ~,@~ e
+il ~`(... ,a)~ aspettano l'esistenza di un ~eval~
+

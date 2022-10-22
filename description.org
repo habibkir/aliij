@@ -1,0 +1,49 @@
+* Tokenizer
+Prende una stringa e ritorna la lista di token contenuti nella stringa
+
+la lista è definita come segue :
+ - le "Stringhe speciali" (caratteri da considerare a parte)
+   ("(", ")", "," ...) sono messe in un token a parte quando le trovi
+ - quando trovi un token speciale separa la roba che ha davanti dalla
+   roba che ha dietro
+ - tutto il resto viene separato da spazii bianchi (" ", "\n", "\t"...)
+
+** IncrementalTokenizer
+accetta una stringa, poi accetta anche altre stringhe, poi accetta
+altre stringhe ancora...
+
+il tutto tenendo una sottospecie di stato interno (apertaggine
+parentesi) e fermandosi solo raggiunto, in questo caso, un'apertaggine
+parentesi nulla alla fine di una stringa
+
+in questo modo si può fare un tokenizer capace di agire in un ambiente
+interattivo
+
+questo tokenizer deve essere inoltre in grado di comunicare ben-ino
+con un TreeBuilder
+
+** Come cazzo faccio le stringhe?
+abbiamo varie scelte
+ 1. Implementa un metodo ~puppaToken~ (dagli un nome migliore quando
+    ti viene) che prende il token successivo, questo metodo ha varie
+    cose che deve fare oltre al già implementato
+    1. quando stai iniziando una stringa ti prende l'intera stringa
+    2. accetta un minimo di read macro
+       1. per il momento preoccupati solo delle read macro per i commenti
+       2. quindi il ~#| ... |#~ e il ~;~
+
+diciamo che il ~Tokenizer~ implementato adesso era un prototipo o un
+/tracer bullet/ a seconda di quanto o come voglio sembrare figo
+(i due concetti non sono la stessa cosa e ne sono consapevole)
+
+* TreeBuilder
+data una lista di token e/o (vedi poi come torna meglio implementarlo)
+un arrivo continuo di token tramite la stream del caso (chiamala
+stream, probabile sarà un recieveToken)
+
+(altrimenti attacchi il metodo con lista a un foreach recieveToken)
+
+comunque quest'affare crea un'albero sintattico con l'andare avanti
+della ricezione di token, questo modello è, al momento, di un
+riduttivo immane e richiederà molta rilavolorazione.
+
