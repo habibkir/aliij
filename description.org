@@ -47,3 +47,6 @@ comunque quest'affare crea un'albero sintattico con l'andare avanti
 della ricezione di token, questo modello è, al momento, di un
 riduttivo immane e richiederà molta rilavolorazione.
 
+* ConsTreeBuilder
+Tipo treebuilder ma dovrebbe costruire una struttura a liste con celle
+cons invece di ~java.util.List~ annidate
