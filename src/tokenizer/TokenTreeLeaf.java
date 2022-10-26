@@ -1,3 +1,5 @@
+package tokenizer;
+
 class TokenTreeLeaf extends TokenTreeNode {
 
     @Override

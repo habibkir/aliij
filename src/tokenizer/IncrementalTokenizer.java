@@ -1,3 +1,5 @@
+package tokenizer;
+
 import java.lang.String;
 import java.lang.Character;
 import java.util.Queue;
@@ -51,7 +53,7 @@ public class IncrementalTokenizer implements TokenSender {
 	return i;
     }
 
-    public void exhaustTokens() {
+    public void exhaustStrings() {
 	while(!stringQueue.isEmpty())
 	    extractToken();
     }
@@ -59,14 +61,14 @@ public class IncrementalTokenizer implements TokenSender {
     private void extractToken() {
 	int endIndex = goOutsideToken(indexInString);
 	sendToken(currString().substring(indexInString,endIndex));
+	indexInString = advanceWhileWhite(endIndex);
 
-	// #ifdef DEBUGGING
-	// System.out.println(currString());
-	// System.out.println(indexInString + " : " + endIndex);
-	// System.out.println(currString().substring(indexInString,endIndex));
-	// indexInString = advanceWhileWhite(endIndex);
-	// System.out.println("Ora in index " + indexInString);
-	// #endif
+	/* #ifdef DEBUGGING
+	System.out.println(currString());
+	System.out.println(indexInString + " : " + endIndex);
+	System.out.println(currString().substring(indexInString,endIndex));
+	System.out.println("Ora in index " + indexInString);
+	#endif */
 
 	if(indexInString == currString().length()) {
 	    stringQueue.remove();

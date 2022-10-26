@@ -1,3 +1,5 @@
+package tokenizer;
+
 import java.util.LinkedList;
 
 /* Composite, but worse */

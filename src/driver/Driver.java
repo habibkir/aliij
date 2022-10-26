@@ -1,3 +1,7 @@
+package driver;
+
+import tokenizer.IncrementalTokenizer;
+import tokenizer.TreeBuilder;
 
 public class Driver {
     public static void testMonoCode() {
@@ -27,21 +31,31 @@ public class Driver {
 
     public static void testPolyCode() {
 	IncrementalTokenizer it = new IncrementalTokenizer();
+	TreeBuilder other = new TreeBuilder();
 	String codicePoli [] =
 	    { "(defun mapc (lst fn)",
 	      "(do ((ll lst (cdr lst))",
 	      "     (test tast tiddy diddler))",
 	      "(funcall fn lst)))"};
-	TreeBuilder other = new TreeBuilder();
+
+	System.out.println("Dichiarato");
+	System.out.println("Costruito");
 	it.setReciever(other);
+	System.out.println("Settato");
 	for(String s : codicePoli) {
 	    it.feedString(s);
 	}
+	System.out.println("Mangiato");
 	it.exhaustStrings();
+
+	System.out.println("Esaurito");
 	it.sendEndSignal();
+	System.out.println("Mandato");
 	other.getTree().visit();
+	System.out.println("Visitato");
     }
     public static void main(String args[]) {
+	System.out.println("Inizio");
 	testPolyCode();
 	System.out.println("Fine");
     }

@@ -1,3 +1,5 @@
+package tokenizer;
+
 import java.lang.RuntimeException;
 
 /* Observer, ma peggio, e di parecchio */
