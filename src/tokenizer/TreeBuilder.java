@@ -9,7 +9,6 @@ import java.util.Stack;
 public class TreeBuilder implements TokenReciever {
     private TokenTree internalTree;
     private Stack<TokenTreeNode> nodePath = new Stack<>();
-    private boolean done = false;
 
     int depth = 0;
     private String genTreeName() {
@@ -40,14 +39,7 @@ public class TreeBuilder implements TokenReciever {
 	return;
     }
 
-    @Override
-    public void recieveEndSignal() {
-	done = true;
-    }
-
     public TokenTree getTree() {
-	if(done)
-	    return internalTree;
-	return null;
+	return internalTree;
     }
 }

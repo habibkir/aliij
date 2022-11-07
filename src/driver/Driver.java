@@ -12,7 +12,6 @@ public class Driver {
 	String codiceMono = "(defun mapc (lst fn)";
 	it.feedString(codiceMono);
 	it.exhaustStrings();
-	it.sendEndSignal();
 	tb.getTree().visit();
     }
 
@@ -25,7 +24,6 @@ public class Driver {
 	it.feedString("(do ((ll lst (cdr lst))");
 
 	it.exhaustStrings();
-	it.sendEndSignal();
 	other.getTree().visit();
     }
 
@@ -46,10 +44,9 @@ public class Driver {
 	    it.feedString(s);
 	}
 	System.out.println("Mangiato");
-	it.exhaustStrings();
 
+	it.exhaustStrings();
 	System.out.println("Esaurito");
-	it.sendEndSignal();
 	System.out.println("Mandato");
 	other.getTree().visit();
 	System.out.println("Visitato");

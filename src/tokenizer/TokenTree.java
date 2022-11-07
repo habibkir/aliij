@@ -26,4 +26,9 @@ public class TokenTree extends TokenTreeNode {
 	}
 	System.out.println("Fine dell'albero ==" + name + "==");
     }
+
+    @Override
+    public LinkedList<TokenTreeNode> getChildren() {
+	return children;
+    }
 }
